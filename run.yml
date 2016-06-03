@@ -1,4 +1,4 @@
-- hosts: digitalocean
+- hosts: all
   remote_user: root
   roles:
-    - role: digitalocean
+    - role: teleirc

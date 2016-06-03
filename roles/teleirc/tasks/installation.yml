@@ -1,4 +1,8 @@
 ---
+- name: update apt - APT
+  apt:
+    update_cache=yes
+
 - name: Install dependencies
   package:
     name: "{{ item }}"
