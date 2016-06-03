@@ -22,6 +22,7 @@
       name=droplet-one
       size_id=512mb
       region_id=sgp1
+      unique_name=yes
       image_id=ubuntu-14-04-x64
       ssh_key_ids={{ my_ssh_key.ssh_key.id }}
       api_token={{ do_token }}
