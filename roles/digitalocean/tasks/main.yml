@@ -23,5 +23,7 @@
     api_token={{ do_token }}
   register: my_droplet
 
+- shell: echo "{{ my_droplet.droplet.ip_address }}" > ip_droplet
+
 - debug: msg="ID is {{ my_droplet.droplet.id }}"
 - debug: msg="IP is {{ my_droplet.droplet.ip_address }}"
