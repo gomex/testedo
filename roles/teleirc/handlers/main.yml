@@ -1,0 +1,4 @@
+---
+# handlers file for roles/teleirc
+- name: restart teleirc
+  service: name=teleirc state=restarted

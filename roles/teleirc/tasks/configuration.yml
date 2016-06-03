@@ -1,0 +1,32 @@
+---
+
+- include_vars: vault.yml
+
+- name: Create configuration file
+  template:
+    src: config.js.j2
+    dest: "{{ teleirc_user.home }}/teleirc-cfg.js"
+    owner: teleirc
+    group: teleirc
+  notify:
+  - restart teleirc
+
+- name: Create initd file
+  template:
+    src: teleirc_init.j2
+    dest: /etc/init.d/teleirc
+    mode: 'u+rwx'
+  notify:
+  - restart teleirc
+
+- name: Create log folder
+  file:
+    path: /var/log/teleirc
+    state: directory
+    owner: teleirc
+
+- name: Start and enable service
+  service:
+    name: teleirc
+    state: started
+    enabled: yes

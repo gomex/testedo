@@ -1,0 +1,7 @@
+---
+
+- name: Adding teleirc user
+  user:
+    name: teleirc
+    shell: /bin/bash
+  register: teleirc_user

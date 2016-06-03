@@ -1,0 +1,5 @@
+---
+# tasks file for roles/teleirc
+- include: base.yml
+- include: installation.yml
+- include: configuration.yml

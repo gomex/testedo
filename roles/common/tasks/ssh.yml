@@ -1,0 +1,9 @@
+---
+# tasks file for common
+- name: Set up authorized_keys for root
+  authorized_key: 
+    user: root
+    key: "{{ item }}"
+  with_file:
+   - nalvarez.pub
+   - gomex.pub

@@ -1,0 +1,10 @@
+---
+# vars file for roles/teleirc
+tg_token: "{{vault_tg_token}}"
+irc_nick: kdeansible
+irc_server: irc.freenode.net
+channel_map:
+  - ircChan: '#kde-ansible-test'
+    tgGroup: Telegram bot test
+  - ircChan: '#lakademy'
+    tgGroup: KDE-Brasil

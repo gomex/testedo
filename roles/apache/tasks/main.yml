@@ -1,0 +1,4 @@
+---
+# tasks file for apache
+- name: install the latest version of Apache
+  yum: name=httpd state=latest

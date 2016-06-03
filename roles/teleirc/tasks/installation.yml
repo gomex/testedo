@@ -1,0 +1,38 @@
+---
+- name: Install dependencies
+  package:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+   - libicu-dev
+   - sudo
+   - ca-certificates
+
+- name: Download nodejs
+  become: yes
+  become_user: teleirc
+  get_url:
+    url: https://nodejs.org/dist/v4.4.5/node-v4.4.5-linux-x64.tar.gz
+    dest: "{{ teleirc_user.home }}/node-v4.4.5-linux-x64.tar.gz"
+  register: node_download
+
+- name: Install nodejs
+  unarchive:
+    copy: no
+    src: "{{ teleirc_user.home }}/node-v4.4.5-linux-x64.tar.gz"
+    dest: "{{ teleirc_user.home }}"
+
+- name: Symlink node
+  file:
+    state: link
+    src: "{{ teleirc_user.home }}/node-v4.4.5-linux-x64/bin/node"
+    dest: /usr/local/bin/node
+
+- name: Install teleirc
+  become: yes
+  become_user: teleirc
+  npm:
+    executable: "{{ teleirc_user.home }}/node-v4.4.5-linux-x64/bin/npm"
+    name: teleirc
+    path: /home/teleirc
+    state: present
