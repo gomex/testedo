@@ -17,7 +17,7 @@
 
   - name: ensure droplet one exists
     digital_ocean: >
-      state=present
+      state=absent
       command=droplet
       name=droplet-one
       size_id=512mb
@@ -28,6 +28,18 @@
       api_token={{ do_token }}
     register: my_droplet
 
+  - name: ensure droplet one exists
+    digital_ocean: >
+      state=present
+      command=droplet
+      name=droplet-two
+      size_id=512mb
+      region_id=sgp1
+      unique_name=yes
+      image_id=ubuntu-14-04-x64
+      ssh_key_ids={{ my_ssh_key.ssh_key.id }}
+      api_token={{ do_token }}
+    register: my_droplet2
 
-  - debug: msg="ID is {{ my_droplet.droplet.id }}"
-  - debug: msg="IP is {{ my_droplet.droplet.ip_address }}"
+  - debug: msg="ID is {{ my_droplet2.droplet.id }}"
+  - debug: msg="IP is {{ my_droplet2.droplet.ip_address }}"
