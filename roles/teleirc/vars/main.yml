@@ -6,5 +6,5 @@ irc_server: irc.freenode.net
 channel_map:
   - ircChan: '#kde-ansible-test'
     tgGroup: Telegram bot test
-  - ircChan: '#lakademy'
-    tgGroup: KDE-Brasil
+#  - ircChan: '#lakademy'
+#    tgGroup: KDE-Brasil
