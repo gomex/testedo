@@ -12,7 +12,7 @@
 
 - name: ensure droplet one exists
   digital_ocean: >
-    state=present
+    state={{ do_state }} 
     command=droplet
     name=droplet-one
     size_id=512mb
@@ -24,6 +24,10 @@
   register: my_droplet
 
 - shell: echo "{{ my_droplet.droplet.ip_address }}" > ip_droplet
+  when: do_state == "present"
 
 - debug: msg="ID is {{ my_droplet.droplet.id }}"
+  when: do_state == "present"
+
 - debug: msg="IP is {{ my_droplet.droplet.ip_address }}"
+  when: do_state == "present"
