@@ -10,7 +10,7 @@
     api_token={{ do_token }}
   register: my_ssh_key
 
-- name: ensure droplet one exists
+- name: ensure droplet one exists or remove it
   digital_ocean: >
     state={{ do_state }} 
     command=droplet
