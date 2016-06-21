@@ -14,7 +14,7 @@
   digital_ocean: >
     state={{ do_state }} 
     command=droplet
-    name=droplet-one
+    name=droplet-dois
     size_id=512mb
     region_id=sgp1
     unique_name=yes
